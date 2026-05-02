@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Thumbnail Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <header>
+        <h1>📥 YouTube Thumbnail Downloader</h1>
+        <p>Paste a YouTube link and download its thumbnail instantly</p>
+    </header>
+
+    <section class="main">
+        <input type="text" id="ytlink" placeholder="Enter YouTube URL here">
+        <button onclick="getThumbnail()">Get Thumbnail</button>
+
+        <div id="result" class="hidden">
+            <img id="thumb" src="" alt="Thumbnail">
+            <br>
+            <a id="downloadBtn" download="thumbnail.jpg">
+                <button>⬇ Download Thumbnail</button>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Made with ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
