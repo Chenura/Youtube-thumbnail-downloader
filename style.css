@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+
+    /* YouTube logo background */
+    background: url('https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg') no-repeat center center fixed;
+    background-size: 300px;
+    background-color: #000;
+}
+
+/* Dark overlay for readability */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: -1;
+}
+
+header {
+    padding: 30px;
+}
+
+.main {
+    padding: 20px;
+}
+
+input {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: red;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkred;
+}
+
+#thumb {
+    margin-top: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    margin-top: 40px;
+}
