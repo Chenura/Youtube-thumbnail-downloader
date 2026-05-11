@@ -28,6 +28,7 @@ function getThumbnail() {
     let index = 0;
 
     function tryNext() {
+
         if (index >= qualities.length) {
             alert("Thumbnail not found.");
             return;
@@ -38,15 +39,58 @@ function getThumbnail() {
         const testImage = new Image();
 
         testImage.onload = function () {
-            // Found working thumbnail
+
+            // Show thumbnail
             imgElement.src = testUrl;
-            downloadBtn.href = testUrl;
+
+            // Show result section
             document.getElementById("result").classList.remove("hidden");
+
+            // Download button functionality
+            downloadBtn.onclick = async function (e) {
+
+                e.preventDefault();
+
+                try {
+
+                    // Fetch image
+                    const response = await fetch(testUrl);
+
+                    // Convert image to blob
+                    const blob = await response.blob();
+
+                    // Create local blob URL
+                    const blobUrl = window.URL.createObjectURL(blob);
+
+                    // Create hidden download link
+                    const a = document.createElement("a");
+                    a.href = blobUrl;
+                    a.download = `youtube-thumbnail-${videoId}.jpg`;
+
+                    // Trigger download
+                    document.body.appendChild(a);
+                    a.click();
+
+                    // Cleanup
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(blobUrl);
+
+                } catch (error) {
+
+                    console.error(error);
+                    alert("Download failed.");
+
+                }
+
+            };
+
         };
 
         testImage.onerror = function () {
+
             index++;
-            tryNext(); // try next quality
+            tryNext();
+
         };
 
         testImage.src = testUrl;
